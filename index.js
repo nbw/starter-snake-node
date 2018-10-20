@@ -1,3 +1,4 @@
+const serverless = require('serverless-http');
 const bodyParser = require('body-parser')
 const express = require('express')
 const logger = require('morgan')
@@ -58,3 +59,6 @@ app.use(genericErrorHandler)
 app.listen(app.get('port'), () => {
   console.log('Server listening on port %s', app.get('port'))
 })
+
+module.exports.handler = serverless(app);
+
